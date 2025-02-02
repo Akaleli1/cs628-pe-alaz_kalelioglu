@@ -1,6 +1,17 @@
-# cs628-pe-alaz_kalelioglu
+# Todo List Application Analysis
 
-Movie List:
+## Input
+The application accepts user input through a text input field where users enter task descriptions. Each input is captured as a string value through React's controlled component pattern using the `useState` hook. The input system also handles form submission events through the `onSubmit` handler and click events for task completion toggling and deletion.
+
+## Process
+The core processing occurs through React's state management system. When a task is added, the application generates a unique ID using `crypto.randomUUID()` and creates a new todo object with the input text, ID, and default completion status. The application maintains todos in an array state using the `useState` hook. Task modifications (toggling completion, deletion) are processed through callback functions that manipulate the todo array using immutable state updates via array methods like `map` and `filter`.
+
+## Output
+The application renders a dynamic user interface displaying the processed todo items. Each todo item is presented as a card component showing the task text, completion status (indicated by a checkmark icon), and a delete button. The output updates reactively whenever the underlying todo state changes, providing immediate visual feedback for all user actions. Empty states are handled by displaying a message when no todos exist.
+
+
+# Movie List Application Analysis: 
+
 
 Input
 The input to the program consists of a list of predefined movie objects, each containing properties for the title, genre, and release year. Additionally, the program takes user interaction as input through a dropdown menu for genre selection and click events on movie cards.
