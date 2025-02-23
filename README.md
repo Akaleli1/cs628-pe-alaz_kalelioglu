@@ -1,3 +1,36 @@
+# Cities Application
+
+A React-based web application for managing city information using local storage.
+
+# Input
+
+The application accepts user input through a form interface that collects:
+- City name (text)
+- Country name (text)
+- Population count (number)
+
+These inputs are validated to ensure all fields are filled before submission. The form provides a clean, intuitive interface with proper labeling and input validation.
+
+# Process
+
+The application processes data through several key operations:
+1. Data Storage: Converts form inputs into a structured city object with a unique ID
+2. Local Storage Management: Stores city data in the browser's localStorage as a JSON string
+3. State Management: Uses React's useState hook for form handling and data updates
+4. Routing Logic: Implements React Router for navigation between views
+5. Data Retrieval: Fetches and parses stored city data for display
+6. Component Rendering: Transforms data into visual components based on the current route
+
+# Output
+
+The application produces three main outputs:
+1. Cities List View: Displays all stored cities as clickable links
+2. City Details View: Shows comprehensive information about a selected city
+3. Success Messages: Provides feedback after successful city addition
+4. Navigation Elements: Renders navigation links and back buttons for user interaction
+
+The output is presented through a responsive, user-friendly interface styled with Tailwind CSS and enhanced with Lucide React icons for visual appeal.
+
 # Todo List Application Analysis
 
 ## Input
