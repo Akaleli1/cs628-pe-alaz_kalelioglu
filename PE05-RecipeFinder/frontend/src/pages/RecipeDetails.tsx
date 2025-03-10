@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Clock, Users, Trash2, Edit } from 'lucide-react';
-import axios from 'axios';
+import AxiosInstance from '../api/axiosInstance';
 import { Recipe } from '../types/recipe';
 
 export function RecipeDetails() {
@@ -10,20 +10,25 @@ export function RecipeDetails() {
   const [recipe, setRecipe] = useState<Recipe | null>(null);
 
   useEffect(() => {
-    axios.get(`/api/recipes/${id}?timestamp=${new Date().getTime()}`)
+    AxiosInstance.get(`/recipes/${id}`)
       .then(response => setRecipe(response.data))
-      .catch(error => console.error('Error fetching recipe:', error));
-  }, [id]);
-
-  const handleDelete = () => {
-    axios.delete(`/api/recipes/${id}`)
-      .then(() => navigate('/'))
       .catch(error => {
         if (error.response && error.response.status === 404) {
           console.error('Recipe not found:', error);
         } else {
-          console.error('Error deleting recipe:', error);
+          console.error('Error fetching recipe:', error);
         }
+      });
+  }, [id]);
+
+  const handleDelete = () => {
+    AxiosInstance.delete(`/recipes/${id}`)
+      .then(() => {
+        navigate('/');
+      }
+      )
+      .catch(error => {
+        console.error('Error deleting recipe:', error);
       });
   };
 
